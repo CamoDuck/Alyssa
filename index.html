@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #e8b4d0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #4a2040;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .label {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .countdown {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .countdown-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .countdown-item .number {
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .countdown-item .unit {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 0.4rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="label">Your 2 year anniverssary gift in...</p>
+    <div class="countdown">
+      <div class="countdown-item">
+        <span class="number" id="days">00</span>
+        <span class="unit">Days</span>
+      </div>
+      <div class="countdown-item">
+        <span class="number" id="hours">00</span>
+        <span class="unit">Hours</span>
+      </div>
+      <div class="countdown-item">
+        <span class="number" id="minutes">00</span>
+        <span class="unit">Minutes</span>
+      </div>
+      <div class="countdown-item">
+        <span class="number" id="seconds">00</span>
+        <span class="unit">Seconds</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // March 16, 2026 00:00:00 PST (UTC-8)
+    const targetDate = new Date('2026-03-16T00:00:00-08:00');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = String(days).padStart(2, '0');
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
