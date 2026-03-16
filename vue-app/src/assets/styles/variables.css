@@ -1,0 +1,41 @@
+/**
+ * Design tokens / CSS custom properties for the application.
+ *
+ * Rarity palette follows a warm-to-cool progression so each tier
+ * feels progressively more "special".
+ */
+
+:root {
+  /* ── Base palette ───────────────────────────────── */
+  --color-bg: #e8b4d0;
+  --color-bg-dark: #d499bb;
+  --color-text: #4a2040;
+  --color-text-light: #7a5070;
+  --color-white: #ffffff;
+  --color-overlay: rgba(74, 32, 64, 0.55);
+
+  /* ── Rarity colours ────────────────────────────── */
+  --rarity-common: #a8a8a8;
+  --rarity-uncommon: #5cb85c;
+  --rarity-rare: #5bc0de;
+  --rarity-epic: #9b59b6;
+  --rarity-legendary: #f0ad4e;
+
+  /* ── Rarity glows (used on cards / modals) ──────── */
+  --glow-common: rgba(168, 168, 168, 0.4);
+  --glow-uncommon: rgba(92, 184, 92, 0.4);
+  --glow-rare: rgba(91, 192, 222, 0.5);
+  --glow-epic: rgba(155, 89, 182, 0.5);
+  --glow-legendary: rgba(240, 173, 78, 0.6);
+
+  /* ── Typography ─────────────────────────────────── */
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* ── Spacing / layout ───────────────────────────── */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.35s ease;
+}
